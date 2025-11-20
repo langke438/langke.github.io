@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Can I Miss Her - 何能不思越</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C5CE7',
+                        secondary: '#FD79A8',
+                        neutral: '#2D3436',
+                        light: '#F8F9FA',
+                        accent: '#0984E3'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'Georgia', 'serif']
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(12px);
+            }
+            .section-fade {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.9s ease, transform 0.9s ease;
+            }
+            .section-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .photo-hover {
+                transition: transform 0.5s ease, box-shadow 0.5s ease;
+            }
+            .photo-hover:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            }
+        }
+    </style>
+    <!-- 引入中文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-neutral-50 to-neutral-100 min-h-screen font-sans text-neutral-800">
+    <!-- 顶部导航 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 bg-blur z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-heart-o mr-2 text-secondary"></i>
+                <span>何能不思越</span>
+            </h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#foreword" class="text-neutral-600 hover:text-primary transition-colors">前言</a>
+                <a href="#encounter" class="text-neutral-600 hover:text-primary transition-colors">初见</a>
+                <a href="#deep" class="text-neutral-600 hover:text-primary transition-colors">深陷</a>
+                <a href="#decision" class="text-neutral-600 hover:text-primary transition-colors">决定</a>
+                <a href="#sad" class="text-neutral-600 hover:text-primary transition-colors">黯伤</a>
+                <a href="#relief" class="text-neutral-600 hover:text-primary transition-colors">释怀</a>
+                <a href="#photos" class="text-neutral-600 hover:text-primary transition-colors">回忆画廊</a>
+                <a href="#improve" class="text-neutral-600 hover:text-primary transition-colors">提升自我</a>
+            </div>
+            <button class="md:hidden text-neutral-700" id="menuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-md absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#foreword" class="text-neutral-600 hover:text-primary py-2 transition-colors">前言</a>
+                <a href="#encounter" class="text-neutral-600 hover:text-primary py-2 transition-colors">初见</a>
+                <a href="#deep" class="text-neutral-600 hover:text-primary py-2 transition-colors">深陷</a>
+                <a href="#decision" class="text-neutral-600 hover:text-primary py-2 transition-colors">决定</a>
+                <a href="#sad" class="text-neutral-600 hover:text-primary py-2 transition-colors">黯伤</a>
+                <a href="#relief" class="text-neutral-600 hover:text-primary py-2 transition-colors">释怀</a>
+                <a href="#photos" class="text-neutral-600 hover:text-primary py-2 transition-colors">回忆画廊</a>
+                <a href="#improve" class="text-neutral-600 hover:text-primary py-2 transition-colors">提升自我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 - 主图展示 -->
+    <header class="pt-28 pb-20 md:pt-36 md:pb-28 px-4 bg-gradient-to-r from-primary/10 to-secondary/10">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-neutral-800 text-shadow-lg">
+                How Can I Miss Her
+            </h1>
+            <p class="text-2xl md:text-3xl font-serif text-primary mb-8">何能不思越</p>
+            <div class="flex justify-center items-center space-x-3 text-neutral-600 mb-12">
+                <span>网络空间安全学院</span>
+                <i class="fa fa-circle text-xs"></i>
+                <span>软工4班</span>
+                <i class="fa fa-circle text-xs"></i>
+                <span>徐枫懿</span>
+            </div>
+            <!-- 主图优化 - 增加边框和hover效果 -->
+            <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:shadow-3xl">
+                <div class="border-4 border-white/80 rounded-xl overflow-hidden">
+                    <img src="ta/7A454821EB397CC58DE45372EFA6B940.jpg" alt="Memorial Photo" class="w-full h-auto object-cover">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+                    <p class="text-white text-xl p-6 text-shadow">青春里最难忘的遇见</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-5xl px-4 py-12">
+        <!-- 前言部分 -->
+        <section id="foreword" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fa fa-book text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">前言 / Foreword</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>Today was supposed to be a speech, but I want to take this opportunity to share my own experience. That is the farthest unforgettable memory of my senior high school.</p>
+                    <p class="mt-4 text-primary italic font-serif text-lg">本该是一场演讲，却想借这个机会，分享一段属于我的故事——那段高中时期最遥远也最难忘的回忆。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 初见部分 -->
+        <section id="encounter" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                        <i class="fa fa-meh-o text-accent text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">初见 / Encounter for the first time</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>It was a late autumn. There was a plain-looking high school student taking part in military training. From that day on, his life was changed by a girl. She was standing behind him. She is of medium height and has beautiful long hair. At first, the boy didn't pay much attention to the girl. Days later, the boy added the girl's QQ.</p>
+                    <div class="mt-8 bg-accent/5 rounded-xl p-6 border-l-4 border-accent">
+                        <p class="text-neutral-700 italic font-serif">那是一个深秋，平凡的高中生正在参加军训。从那天起，一个女孩改变了他的生活。她就站在他身后，中等身高，有着一头漂亮的长发。起初男孩并未过多留意，几天后，他添加了女孩的QQ。</p>
+                    </div>
+                    <!-- 增加场景氛围图（复用主图，调整尺寸和效果） -->
+                    <div class="mt-8 flex justify-center">
+                        <div class="relative w-full max-w-md rounded-lg overflow-hidden shadow-lg">
+                            <img src="ta/4FEA77D03516053E53576A20EE6401B0.jpg" alt="First Encounter" class="w-full h-auto opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
+                                <p class="text-white p-4 text-shadow">深秋的遇见，命运的转折</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 深陷部分 -->
+        <section id="deep" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4">
+                        <i class="fa fa-heart text-secondary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">深陷 / Up to the chin</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>Days later, the boy added the girl's QQ. They talked late into the night every night and always had different topics. After a long chat, the boy found that he had a special feeling for the girl. When he saw the girl, he was afraid to talk to her. But he didn't know why. Then the boy found that he had fallen in love with the girl. Whenever he saw her, he always had a strong sense of excitement and loss. Whenever she smiled sweetly, he would be happy all day and would always remember that smile.</p>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-secondary/5 rounded-xl p-6">
+                            <p class="text-sm text-secondary font-medium mb-2">💬 彻夜长谈</p>
+                            <p class="text-neutral-700">每晚聊到深夜，总有说不完的话题</p>
+                        </div>
+                        <div class="bg-secondary/5 rounded-xl p-6">
+                            <p class="text-sm text-secondary font-medium mb-2">❤️ 特殊情愫</p>
+                            <p class="text-neutral-700">见到她时的紧张与欣喜，她的笑容让人一整天都充满阳光</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 决定部分 -->
+        <section id="decision" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mr-4">
+                        <i class="fa fa-bolt text-neutral-800 text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">决定 / Decision</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>For a long time, his mind was full of her. After a strong ideological struggle, he intended to take that step. On a special night, he bravely walked outside the girl's classroom. When the girl left the classroom, he quickly gave her a piece of paper. Then he ran away without looking back, leaving only the girl standing there by herself. He hid in the stairs and took a deep breath. “I did it！Great！I'm brave！”</p>
+                    <div class="mt-8 flex justify-center">
+                        <div class="inline-block bg-neutral-100 rounded-full px-6 py-3 text-neutral-800 font-medium shadow-md">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>我做到了！我很勇敢！
+                        </div>
+                    </div>
+                    <!-- 增加表白场景示意图 -->
+                    <div class="mt-8 flex justify-center">
+                        <div class="relative w-full max-w-md rounded-lg overflow-hidden shadow-lg">
+                            <img src="ta/7B5AB1DA0F7C0E0342B9000F1CA5693D.jpg" alt="Confession Night" class="w-full h-auto opacity-85 grayscale-0 hover:grayscale-0 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
+                                <p class="text-white p-4 text-shadow">那个勇敢的夜晚</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 黯伤部分 -->
+        <section id="sad" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                        <i class="fa fa-tear text-red-500 text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">黯伤 / Sad alone</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>They didn't talk for a week after that day. Suddenly one day the girl sent a message to the boy. “Emm，I think we can only be friends, just friends.” When he saw this message, his heart was half frozen. His tears had been swirling in his eyes. He cried all night that night. He listened to the song he learned for the girl，The name of that music is Light Chaser.</p>
+                    <div class="mt-8 bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
+                        <p class="text-neutral-700 italic">"Emm，I think we can only be friends, just friends."</p>
+                        <p class="mt-2 text-red-500 font-medium">"嗯，我觉得我们只能做朋友，仅仅是朋友。"</p>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-neutral-600">单曲循环整晚的歌：<span class="text-primary font-medium">《追光者》</span></p>
+                        <!-- 增加音乐氛围元素 -->
+                        <div class="mt-4 inline-block bg-neutral-100 rounded-full px-4 py-2">
+                            <i class="fa fa-music text-secondary mr-2"></i>
+                            <span class="text-neutral-700">你是遥远的星河，耀眼得让人想哭</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 释怀部分 -->
+        <section id="relief" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                        <i class="fa fa-smile-o text-green-500 text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">释怀 / Relief</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>After that, the boy confessed to the girl three times. Without exception, he was rejected. For a long time after that, the boy was trying to let her go. He tried very hard to forget her, but every time he saw her, he still felt very uncomfortable. But as time went on, he thought it over. The girl is someone he will never get, but she can be his White Moon Light forever. The boy had quietly let go of himself. After that, they became good friends, but only good friends. But the boy thought this is the best result.</p>
+                    <div class="mt-8 flex justify-center">
+                        <div class="max-w-md text-center">
+                            <p class="text-green-600 font-medium text-xl mb-2">最好的结果</p>
+                            <p class="text-neutral-700">她是永远得不到的白月光，却成了最好的朋友</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 回忆画廊 - 新增模块，重点展示PPT图片 -->
+        <section id="photos" class="mb-20 section-fade">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fa fa-picture-o text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">回忆画廊 / Memory Gallery</h2>
+                </div>
+                <p class="text-neutral-600 text-center mb-10">These are some of the most beautiful photos I think of her, although I think all her photos are beautiful. Whenever I see these photos, I feel very comfortable.</p>
+                <p class="text-primary text-center mb-10 font-serif italic">这些是我心中她最美的样子，其实每一张都让我心动。每次看到这些照片，都会觉得很安心。</p>
+                
+                <!-- 图片网格布局，复用PPT两张图片进行差异化展示 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 第一张图 - 大图展示 -->
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="relative rounded-xl overflow-hidden shadow-lg photo-hover">
+                            <img src="ta/7A454821EB397CC58DE45372EFA6B940.jpg" alt="Memorial Photo 1" class="w-full h-auto">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white p-6 text-shadow text-xl">最珍贵的回忆</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第二张图 - 不同比例展示 -->
+                    <div class="relative rounded-xl overflow-hidden shadow-lg photo-hover h-80">
+                        <img src="ta/C0B62499DD57DE8F13EA335F4FA7BE62.jpg" alt="Memorial Photo 2" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white p-4 text-shadow">青春的印记</p>
+                        </div>
+                    </div>
+                    <!-- 第一张图复用 - 特写展示 -->
+                    <div class="relative rounded-xl overflow-hidden shadow-lg photo-hover h-80">
+                        <img src="ta/微信图片_20220918154741.jpg" alt="Memorial Photo 3" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white p-4 text-shadow">永远的白月光</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <p class="text-neutral-500 italic">每一张照片，都是时光的见证</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 提升自我部分 -->
+        <section id="improve" class="mb-16 section-fade">
+            <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl shadow-xl p-8 md:p-10 transform transition-all duration-500 hover:shadow-2xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                        <i class="fa fa-rocket text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-neutral-800">提升自我 / Improve oneself</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-neutral-700 leading-relaxed">
+                    <p>These are just episodes in our lives, and there is no need to complain unnecessarily because of something we can't get. The only thing we need to do is self-discipline, strictly limit ourselves and return to the original state. Indulging in unnecessary sadness will only make us more and more decadent. Improving yourself is the only way.</p>
+                    
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <h3 class="text-xl font-bold text-neutral-800 mb-3 flex items-center">
+                                <i class="fa fa-check text-green-500 mr-2"></i>应该做的
+                            </h3>
+                            <ul class="space-y-2 text-neutral-700">
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>严格自律，回归正轨</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>持续提升自我能力</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>制定并执行成长计划</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>积极面对生活与挑战</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <h3 class="text-xl font-bold text-neutral-800 mb-3 flex items-center">
+                                <i class="fa fa-times text-red-500 mr-2"></i>不该做的
+                            </h3>
+                            <ul class="space-y-2 text-neutral-700">
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-red-400 mt-1 mr-2"></i>
+                                    <span>沉溺于无意义的悲伤</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-red-400 mt-1 mr-2"></i>
+                                    <span>每日浑浑噩噩，虚度光阴</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-red-400 mt-1 mr-2"></i>
+                                    <span>因得不到而抱怨不休</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-angle-right text-red-400 mt-1 mr-2"></i>
+                                    <span>放弃自我成长与进步</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 bg-primary/5 rounded-xl p-8 border border-primary/20">
+                        <p class="text-xl font-bold text-neutral-800 mb-4 text-center">唯有提升自己，才能拥有想要的一切</p>
+                        <p class="text-neutral-700 text-center">包括事业、爱情，以及更美好的人生</p>
+                        <div class="mt-6 flex justify-center">
+                            <a href="#" class="inline-flex items-center bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fa fa-arrow-right mr-2"></i>
+                                从现在开始提升自己
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 结语部分 -->
+    <section class="bg-neutral-800 text-white py-16 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6 text-shadow">结语 / Concluding Remarks</h2>
+            <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                This is just a sharing of my unforgettable personal experience, so please don't take it amiss. Thank you very much for listening today.
+            </p>
+            <p class="text-neutral-300 text-lg leading-relaxed max-w-3xl mx-auto mt-4 font-serif">
+                这只是一段难忘的个人经历分享，希望不会唐突。非常感谢大家今天的聆听。
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="w-20 h-1 bg-primary rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-neutral-900 text-white py-12 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fa fa-heart text-secondary mr-2"></i>
+                        何能不思越
+                    </h3>
+                    <p class="text-neutral-400">一段难忘的青春回忆</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors text-xl">
+                        <i class="fa fa-qq"></i>
+                    </a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors text-xl">
+                        <i class="fa fa-wechat"></i>
+                    </a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors text-xl">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-neutral-700 text-center text-neutral-500">
+                <p>© All Rights Reserved | 徐枫懿 | 网络空间安全学院软工4班</p>
+                <p class="mt-2 text-sm">感谢聆听 / Thank you for listening</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90 z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 滚动动画
+        const sections = document.querySelectorAll('.section-fade');
+        const backToTop = document.getElementById('backToTop');
+
+        function checkScroll() {
+            // 回到顶部按钮显示/隐藏
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+
+            // 滚动显示动画
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('section-visible');
+                }
+            });
+        }
+
+        // 回到顶部功能
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 初始化
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // 导航栏滚动效果
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
